@@ -16,6 +16,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired // 注入的是我们自定义的UserServiceImpl @Service
 	private UserDetailsService userService;
 	
+	
+	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		// Fluent API

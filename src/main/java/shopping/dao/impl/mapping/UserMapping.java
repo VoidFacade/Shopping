@@ -4,4 +4,6 @@ import shopping.entity.User;
 
 public interface UserMapping {
 	User findOneByUsername(String username);
+
+	void reg(User user);
 }

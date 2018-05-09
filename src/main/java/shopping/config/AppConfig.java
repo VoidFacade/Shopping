@@ -28,7 +28,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @ComponentScan(basePackages = "shopping") 
 @EnableWebMvc
 @PropertySource("classpath:jdbc.properties")
-@MapperScan("shopping.dao.mybatis.mappers") // 扫描此包下的所有mapper接口并注册实现bean
+@MapperScan("shopping.dao.impl.mapping") // 扫描此包下的所有mapper接口并注册实现bean
 @EnableTransactionManagement
 public class AppConfig extends WebMvcConfigurerAdapter {
 

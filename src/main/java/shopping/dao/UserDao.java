@@ -4,4 +4,6 @@ import shopping.entity.User;
 
 public interface UserDao {
 	User findOneByUsername(String username);
+
+	void reg(User user);
 }

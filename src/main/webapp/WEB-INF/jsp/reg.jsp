@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
     
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %> 
 <c:set var="contextPath" value="${pageContext.request.contextPath}"></c:set> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -41,23 +42,23 @@
     <li class="regEqBg2">采购商</li>
     <div class="clears"></div>
    </ul><!--regEq/-->
-   <form action="${contextPath}/reggys" method="get" class="regForm">
+   <form:form action="${contextPath}/reg/new" method="post" class="regForm" commandName="user" enctype="multipart/form-data">
     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
     <div class="loginBuyList">
      <label for="name">用户名：</label>
-     <input type="text" id="name" />
+     <form:input type="text"  path = "username" />
     </div><!--loginBuyList/-->
     <div class="loginBuyList">
      <label for="email">邮箱：</label>
-     <input type="text" id="email" />
+     <form:input type="text"  path = "email" />
     </div><!--loginBuyList/-->
     <div class="loginBuyList">
      <label for="tel">手机号码：</label>
-     <input type="text" id="tel" />
+     <form:input type="text"  path = "phonenumber"/>
     </div><!--loginBuyList/-->
     <div class="loginBuyList">
      <label for="pwd">设置密码：</label>
-     <input type="text" id="pwd" />
+     <form:input type="text"  path="password" />
     </div><!--loginBuyList/-->
     <div class="loginBuyList" style="border:#DEDEDE 1px solid;">
      <label for="pwd1">确认密码：</label>
@@ -78,25 +79,25 @@
     <div class="regSubs">
      <input type="submit" value=" 注 册 " />
     </div><!--regSub/-->
-   </form><!--/-->
+   </form:form><!--/-->
    
-   <form action="" method="get" class="regForm">
+   <form:form action="${contextPath}/reg/new" method="post" class="regForm" commandName="user" enctype="multipart/form-data">
     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
     <div class="loginBuyList">
      <label for="name">用户名：</label>
-     <input type="text" id="name" />
+     <form:input type="text" id="name" path="username"/>
     </div><!--loginBuyList/-->
     <div class="loginBuyList">
      <label for="email">邮箱：</label>
-     <input type="text" id="email" />
+     <form:input type="text" id="email" path="email"/>
     </div><!--loginBuyList/-->
     <div class="loginBuyList">
      <label for="tel">手机号码：</label>
-     <input type="text" id="tel" />
+     <form:input type="text" id="tel" path="phonenumber"/>
     </div><!--loginBuyList/-->
     <div class="loginBuyList">
      <label for="pwd">设置密码：</label>
-     <input type="text" id="pwd" />
+     <form:input type="text" id="pwd" path="password" />
     </div><!--loginBuyList/-->
     <div class="loginBuyList" style="border:#DEDEDE 1px solid;">
      <label for="pwd1">确认密码：</label>
@@ -117,7 +118,7 @@
     <div class="regSubs">
      <input type="button" value=" 注 册 " />
     </div><!--regSub/-->
-   </form><!--/-->
+   </form:form><!--/-->
   </div><!--loginBuyLeft-->
   <div class="loginBuyRight">
    <div class="regDl">

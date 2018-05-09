@@ -11,12 +11,14 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import shopping.dao.UserDao;
 import shopping.entity.User;
 import shopping.service.UserService;
 
 @Service
+@Transactional
 public class UserServiceImpl implements UserDetailsService, UserService {
 
 	@Autowired
@@ -24,7 +26,9 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		System.out.println(username);
 		User user = userDao.findOneByUsername(username);
+		System.out.println(user);
 		if (user == null) {
 			throw new UsernameNotFoundException(username);
 		}
@@ -32,6 +36,16 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 		UserDetailsImpl userDetailsImpl = new UserDetailsImpl(user);
 		System.out.println("loadUserByUsername: " + userDetailsImpl);
 		return userDetailsImpl;
+	}
+
+	@Override
+	public void reg(User user) {
+		userDao.reg(user);
+	}
+
+	@Override
+	public User findOne(String username) {
+		return userDao.findOneByUsername(username);
 	}
 
 }
@@ -48,11 +62,6 @@ class UserDetailsImpl extends org.springframework.security.core.userdetails.User
 		// spring
 		// security把角色权限都抽象成了GrantedAuthority，为了区分，我们使用PERM_前缀表示权限，ROLE_前缀表示角色
 		List<GrantedAuthority> authorities = new ArrayList<>();
-		for (String permission : user.getPermissions()) {
-			authorities.add(new SimpleGrantedAuthority("PERM_" + permission));
-		}
-
-		authorities.add(new SimpleGrantedAuthority("ROLE_" + user.getRole()));
 		return authorities;
 	}
 

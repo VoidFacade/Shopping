@@ -3,8 +3,14 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="shopping.dao.impl.mapping.UserMapper">
+<mapper namespace="shopping.dao.impl.mapping.UserMapping">
 	<select id="findOneByUsername" resultType="User">
 		select * from users where username = #{username}
 	</select>
+	
+	<insert id="reg">
+		insert into users (id,username,email,phonenumber,password)
+		values(users_seq.nextval,#{username},#{email},#{phonenumber},#{password})
+	</insert>
 </mapper>
+
