@@ -9,21 +9,21 @@ public class User {
 	private String email;
 	private String phoneNumber;
 	private String password;
-	private String verification;
+//	private String verification;
 	private List<String> permissions;
 	private String role;
 
 	public User() {
 	}
 
-	public User(Long id, String username, String email, String phoneNumber, String password, String verification,
+	public User(Long id, String username, String email, String phoneNumber, String password,
 			List<String> premissions, String role) {
 		this.id = id;
 		this.username = username;
 		this.email = email;
 		this.phoneNumber = phoneNumber;
 		this.password = password;
-		this.verification = verification;
+//		this.verification = verification;
 		this.permissions = premissions;
 		this.role = role;
 	}
@@ -69,15 +69,6 @@ public class User {
 		this.password = password;
 	}
 
-	public String getVerification() {
-		return verification;
-	}
-
-	public void setVerification(String verification) {
-		this.verification = verification;
-		
-		
-	}
 
 
 	public List<String> getPermissions() {
@@ -99,7 +90,7 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", username=" + username + ", email=" + email + ", phoneNumber=" + phoneNumber
-				+ ", password=" + password + ", verification=" + verification + ", premissions=" + permissions
+				+ ", password=" + password +  ", premissions=" + permissions
 				+ ", role=" + role + "]";
 	}
 
