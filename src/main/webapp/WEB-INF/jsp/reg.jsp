@@ -8,7 +8,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>unique</title>
+<title>注册页</title>
 <link type="text/css" href="${contextPath}/assets/css/css.css" rel="stylesheet" />
 <script type="text/javascript" src="${contextPath}/assets/js/jquery.js"></script>
 <script type="text/javascript" src="${contextPath}/assets/js/js.js"></script>
@@ -42,7 +42,7 @@
     <li class="regEqBg2">采购商</li>
     <div class="clears"></div>
    </ul><!--regEq/-->
-   <form:form action="${contextPath}/reg/new" method="post" class="regForm" commandName="user" enctype="multipart/form-data">
+   <form:form action="" method="post" class="regForm" commandName="user" enctype="multipart/form-data">
     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
     <div class="loginBuyList">
      <label for="name">用户名：</label>

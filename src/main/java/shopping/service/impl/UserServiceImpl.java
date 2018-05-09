@@ -10,10 +10,12 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import shopping.dao.UserDao;
+import shopping.entity.Commodity;
 import shopping.entity.User;
 import shopping.service.UserService;
 
@@ -21,31 +23,48 @@ import shopping.service.UserService;
 @Transactional
 public class UserServiceImpl implements UserDetailsService, UserService {
 
-	@Autowired
+	
 	private UserDao userDao;
+	private BCryptPasswordEncoder passwordEncoder;
+	
+	
+	@Autowired
+	public UserServiceImpl(UserDao userDao, BCryptPasswordEncoder passwordEncoder) {
+		this.userDao = userDao;
+		this.passwordEncoder = passwordEncoder;
+	}
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		System.out.println(username);
 		User user = userDao.findOneByUsername(username);
-		System.out.println(user);
 		if (user == null) {
 			throw new UsernameNotFoundException(username);
 		}
 		// 模拟从数据库查到的权限列表
 		UserDetailsImpl userDetailsImpl = new UserDetailsImpl(user);
-		System.out.println("loadUserByUsername: " + userDetailsImpl);
 		return userDetailsImpl;
 	}
 
 	@Override
 	public void reg(User user) {
+		user.setPassword(passwordEncoder.encode(user.getPassword()));
 		userDao.reg(user);
 	}
 
 	@Override
 	public User findOne(String username) {
 		return userDao.findOneByUsername(username);
+	}
+
+	@Override
+	public User usernameExist(String username) {
+		
+		return userDao.findOneByUsername(username) ;
+	}
+
+	@Override
+	public List<Commodity> findAllCommoditys() {
+		return userDao.findAllCommoditys();
 	}
 
 }
