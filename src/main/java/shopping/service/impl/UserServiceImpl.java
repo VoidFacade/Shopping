@@ -17,6 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 import shopping.dao.UserDao;
 import shopping.entity.Commodity;
 import shopping.entity.User;
+import shopping.entity.UserDetalis;
 import shopping.service.UserService;
 
 @Service
@@ -66,6 +67,28 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 	public List<Commodity> findAllCommoditys() {
 		return userDao.findAllCommoditys();
 	}
+
+	@Override
+	public User findUser(Long id) {
+		
+		return userDao.findUser(id);
+	}
+
+	@Override
+	public UserDetalis findUserDetalis(Long id) {
+		return userDao.finUserDetalis(id);
+	}
+
+	@Override
+	public void createDetalis(UserDetalis userDetalis) {
+		userDao.createDatalis(userDetalis);
+	}
+
+	@Override
+	public void updateDetalis(UserDetalis userDetalis) {
+		userDao.updateDetalis(userDetalis);
+	}
+
 
 }
 

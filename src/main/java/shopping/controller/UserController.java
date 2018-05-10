@@ -5,20 +5,20 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import shopping.entity.Commodity;
 import shopping.entity.User;
+import shopping.entity.UserDetalis;
 import shopping.service.UserService;
 @Controller
 public class UserController {
@@ -66,7 +66,28 @@ public class UserController {
 		return "prolist";
 		
 	}
-
+	@RequestMapping(method = RequestMethod.GET, value = "/vip/{id}")
+	public String getVip(@AuthenticationPrincipal(expression = "user") User curUser, Model model){
+		User user = userSerive.findUser(curUser.getId());
+		model.addAttribute("user", user);
+		return"vip";
+	}
+	@RequestMapping(method = RequestMethod.POST, value = "/vip/{id}")
+	public String editVip(@ModelAttribute UserDetalis userDetalis,@PathVariable Long id ){
+		UserDetalis userD = userSerive.findUserDetalis(id);
+		if(userD == null){
+			
+			userDetalis.setId(id);
+			userSerive.createDetalis(userDetalis);
+		}else{
+			userDetalis.setId(id);
+			System.out.println(userDetalis);
+			userSerive.updateDetalis(userDetalis);
+		}
+		
+		return "redirect:/vip/{id}";
+		
+	}
 	
 
 }

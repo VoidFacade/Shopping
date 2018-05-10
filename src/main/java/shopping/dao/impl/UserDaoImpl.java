@@ -9,6 +9,7 @@ import shopping.dao.UserDao;
 import shopping.dao.impl.mapping.UserMapping;
 import shopping.entity.Commodity;
 import shopping.entity.User;
+import shopping.entity.UserDetalis;
 @Repository
 public class UserDaoImpl implements UserDao {
 	@Autowired
@@ -27,6 +28,26 @@ public class UserDaoImpl implements UserDao {
 	@Override
 	public List<Commodity> findAllCommoditys() {
 		return userMapping.findAllCommoditys();
+	}
+
+	@Override
+	public User findUser(Long id) {
+		return userMapping.findUser(id);
+	}
+
+	@Override
+	public UserDetalis finUserDetalis(Long id) {
+		return userMapping.findUserDetails(id);
+	}
+
+	@Override
+	public void createDatalis(UserDetalis userDetalis) {
+		userMapping.createDatalis(userDetalis);
+	}
+
+	@Override
+	public void updateDetalis(UserDetalis userDetalis) {
+		userMapping.updateDetalis(userDetalis);
 	}
 
 }

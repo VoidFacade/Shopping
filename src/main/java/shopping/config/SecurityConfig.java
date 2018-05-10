@@ -30,7 +30,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			
 			.formLogin() // 使用表单登录
 			.loginPage("/login") // 指定登录页面所在的地址
-			.defaultSuccessUrl("/index")
+			.defaultSuccessUrl("/prolist")
 			.and()
 			
 			.rememberMe() // 记住我配置

@@ -8,6 +8,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from users where username = #{username}
 	</select>
 	
+	<select id="findUser" resultType="User">
+		select * from users where id = #{id}
+	</select>
+	
 	<insert id="reg">
 		insert into users (id,username,email,phonenumber,password)
 		values(users_seq.nextval,#{username},#{email},#{phonenumber},#{password})
@@ -16,5 +20,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="findAllCommoditys" resultType="Commodity">
 		select * from Commodity 
 	</select>
+	
+	
+	<select id = "findUserDetails" resultType="UserDetalis" >
+		select * from userDetails where id = #{id}
+	</select>
+	<insert id="createDatalis">
+		insert into userDetails (id,name,sheng,shi,qu,sex,email,idCard,details)
+		values(#{id},#{name},#{sheng},#{shi},#{qu},#{sex},#{email},#{idcard},#{details})
+	</insert>
+	<update id="updateDetalis">
+		update userDetails 
+		set 
+		name = #{name},sheng = #{sheng},shi = #{shi},qu = #{qu},sex = #{sex},
+		email = #{email},idCard = #{idcard},details = #{details}
+		where id = #{id}
+	</update>
 </mapper>
 
