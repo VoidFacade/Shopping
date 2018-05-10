@@ -88,6 +88,13 @@ public class UserController {
 		return "redirect:/vip/{id}";
 		
 	}
+	@RequestMapping(method = RequestMethod.GET, value = "/vipOrder/{id}")
+	public String getVipOrder(@AuthenticationPrincipal(expression = "user") User curUser, Model model){
+		System.out.println(curUser.getId());
+		
+		return "vidOrder";
+		
+	}
 	
 
 }
