@@ -42,5 +42,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT * FROM order_user
 	
 	</select>	
+	
+	<select id = "getUserCars" resultType="Car" >
+	
+		SELECT * FROM cars
+	
+	</select>	
 </mapper>
 

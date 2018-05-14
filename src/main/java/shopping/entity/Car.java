@@ -1,40 +1,41 @@
 package shopping.entity;
 
-import java.util.List;
-
 public class Car {
 	
 	private Long id;
-	private List<Goods> commoditys;
-
+	private Long userID;
+	private long goodsID;
 	public Car() {
 	}
-
-	public Car(Long id,List<Goods> commoditys) {
+	public Car(Long id, Long userID, long goodsID) {
 		this.id = id;
-		this.commoditys = commoditys;
+		this.userID = userID;
+		this.goodsID = goodsID;
 	}
-
 	public Long getId() {
 		return id;
 	}
-
 	public void setId(Long id) {
 		this.id = id;
 	}
-
-	public List<Goods> getCommoditys() {
-		return commoditys;
+	public Long getUserID() {
+		return userID;
 	}
-
-	public void setCommoditys(List<Goods> commoditys) {
-		this.commoditys = commoditys;
+	public void setUserID(Long userID) {
+		this.userID = userID;
 	}
-
+	public long getGoodsID() {
+		return goodsID;
+	}
+	public void setGoodsID(long goodsID) {
+		this.goodsID = goodsID;
+	}
 	@Override
 	public String toString() {
-		return "Car [id=" + id + ", commoditys=" + commoditys + "]";
+		return "Car [id=" + id + ", userID=" + userID + ", goodsID=" + goodsID + "]";
 	}
-
+	
+	
+	
 	
 }

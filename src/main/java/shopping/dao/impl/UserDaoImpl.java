@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import shopping.dao.UserDao;
 import shopping.dao.impl.mapping.UserMapping;
+import shopping.entity.Car;
 import shopping.entity.Goods;
 import shopping.entity.Order;
 import shopping.entity.User;
@@ -54,6 +55,11 @@ public class UserDaoImpl implements UserDao {
 	@Override
 	public List<Order> getUserOrder(Long id) {
 		return userMapping.getUserOrder(id);
+	}
+
+	@Override
+	public List<Car> getUserCars(Long id) {
+		return userMapping.getUserCars(id);
 	}
 
 }

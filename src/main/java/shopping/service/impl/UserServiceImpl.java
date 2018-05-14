@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import shopping.dao.UserDao;
+import shopping.entity.Car;
 import shopping.entity.Goods;
 import shopping.entity.Order;
 import shopping.entity.User;
@@ -93,6 +94,12 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 	@Override
 	public List<Order> getUserOrder(Long id) {
 		return userDao.getUserOrder(id);
+	}
+
+	@Override
+	public List<Car> getUserCars(Long id) {
+		
+		return userDao.getUserCars(id);
 	}
 
 

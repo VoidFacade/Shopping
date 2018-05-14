@@ -2,6 +2,7 @@ package shopping.dao.impl.mapping;
 
 import java.util.List;
 
+import shopping.entity.Car;
 import shopping.entity.Goods;
 import shopping.entity.Order;
 import shopping.entity.User;
@@ -23,4 +24,6 @@ public interface UserMapping {
 	void updateDetalis(UserDetalis userDetalis);
 
 	List<Order> getUserOrder(Long id);
+
+	List<Car> getUserCars(Long id);
 }

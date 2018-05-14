@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import shopping.entity.Car;
 import shopping.entity.Goods;
 import shopping.entity.Order;
 import shopping.entity.User;
@@ -89,14 +90,21 @@ public class UserController {
 		return "redirect:/vip/{id}";
 		
 	}
+	
 	@RequestMapping(method = RequestMethod.GET, value = "/vipOrder/{id}")
 	public String getVipOrder(@AuthenticationPrincipal(expression = "user") User curUser, Model model){
 		System.out.println(curUser.getId());
 		List<Order> orders = userSerive.getUserOrder(curUser.getId());
 		model.addAttribute("orders", orders);
-		
-		return "vidOrder";
-		
+		return "vipOrder";
+	}
+	
+	@RequestMapping(method = RequestMethod.GET, value = "/vipShoucang/{id}")
+	public String getVipShoucang(@AuthenticationPrincipal(expression = "user") User curUser, Model model){
+		System.out.println(curUser.getId());
+		List<Car> cars = userSerive.getUserCars(curUser.getId());
+		model.addAttribute("cars", cars);
+		return "vipShoucang";
 	}
 	
 
