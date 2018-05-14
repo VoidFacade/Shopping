@@ -1,18 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
-
-<c:set var="contextPath" value="${pageContext.request.contextPath}"></c:set>
+<c:set var="contextPath" value="${pageContext.request.contextPath}"></c:set> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>unique</title>
-<link type="text/css" href="${contextPath}/assets/css/css.css" rel="stylesheet" />
-<script type="text/javascript" src="${contextPath}/assets/js/js/jquery-1.9.1.min.js"></script>
-<script type="text/javascript" src="${contextPath}/assets/js/js.js"></script>
+<title>收货地址列表</title>
+<link type="text/css" href="css/css.css" rel="stylesheet" />
+<script type="text/javascript" src="js/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="js/js.js"></script>
 
 </head>
 
@@ -34,12 +34,12 @@
  </div><!--hrader/-->
  <div class="mid">
   <h1 class="logo" style="text-align:left;">
-  <a href="index.html"><img src="${contextPath}/assets/images/logo.png" width="304" height="74" /></a>
+  <a href="index.html"><img src="images/logo.png" width="304" height="74" /></a>
   </h1>
   <form action="#" method="get" class="subBox">
    <div class="subBox2">
     <input type="text" class="subText" />
-    <input type="image" src="${contextPath}/assets/images/sub.jpg" width="95" height="32" class="subImg" />
+    <input type="image" src="images/sub.jpg" width="95" height="32" class="subImg" />
     <div class="hotci">
     <a href="#">酷派大神</a>
     <a href="#">三星s5</a>
@@ -51,15 +51,15 @@
   </form><!--subBox/-->
   <div class="ding-gou">
    <div class="ding">
-    <a href="order.html"><img src="${contextPath}/assets/images/dingdan.jpg" width="106" height="32" /></a>
+    <a href="order.html"><img src="images/dingdan.jpg" width="106" height="32" /></a>
    </div><!--ding/-->
    <div class="gou">
-    <a href="car.html"><img src="${contextPath}/assets/images/gouwuche.jpg" width="126" height="32" /></a>
+    <a href="car.html"><img src="images/gouwuche.jpg" width="126" height="32" /></a>
    </div><!--gou/-->
    <div class="clears"></div>
   </div><!--ding-gou/-->
  </div><!--mid-->
- <div class="navBox navBg3">
+ <div class="navBox navBg1">
   <ul class="nav">
    <li><a href="index.html">首页</a></li>
    <li><a href="buy.html">买家</a></li>
@@ -73,16 +73,16 @@
  </div><!--navBox/-->
  <div class="vipBox">
   <div class="vipLeft">
-   <h2 class="headImg"><img src="${contextPath}/assets/images/vipImg.jpg" width="183" height="169" /></h2>
+   <h2 class="headImg"><img src="images/vipImg.jpg" width="183" height="169" /></h2>
    <h3 class="vipName">测试webqin</h3>
    <dl class="vipNav">
     <dt class="vip_1 vipCur">买家中心</dt>
-     <dd><a href="${contextPath}/vipOrder/<sec:authentication property="principal.user.id"/>">我的订单</a></dd>
-     <dd><a href="${contextPath}/vipShoucang/<sec:authentication property="principal.user.id"/>">收藏关注</a></dd>
+     <dd><a href="vipOrder.html">我的订单</a></dd>
+     <dd><a href="vipShoucang.html">收藏关注</a></dd>
     <dt class="vip_2">账户设置</dt>
-     <dd class="ddCur"><a href="#">个人信息</a></dd>
-     <dd><a href="${contextPath}/vipPwd/<sec:authentication property="principal.user.id"/>">密码修改</a></dd>
-     <dd><a href="${contextPath}/vipAddress/<sec:authentication property="principal.user.id"/>">收货地址</a></dd>
+     <dd><a href="vip.html">个人信息</a></dd>
+     <dd><a href="vipPwd.html">密码修改</a></dd>
+     <dd class="ddCur"><a href="vipAddress.html">收货地址</a></dd>
      <dd><a href="vipXiaofei.html">消费记录</a></dd>
     <dt class="vip_3">客户服务</dt>
      <dd><a href="vipQuxiao.html">取消订单/退货</a></dd>
@@ -91,68 +91,82 @@
    </dl><!--vipNav/-->
   </div><!--vipLeft/-->
   <div class="vipRight">
-   <h2 class="vipTitle">个人中心</h2>
+   <h2 class="vipTitle">收货地址</h2>
    
-   <form action="${contextPath}/vip/${user.id}" class="registerform" method= "post">
-   <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> 
-      <table class="grzx" width="705" border="0" cellspacing="0" cellpadding="0">
-        <tr>
-          <td width="90"><span>*</span>真实姓名：</td>
-          <td width="430"><input name="name" type="text" class="text inputxt" /></td>
-          <td rowspan="8" valign="top"><div id="tx"><img src="${contextPath}/assets/images/vipImg.jpg" /></div>
-            <span class="file"><input name="" type="file" class="file1" /></span></td>
-        </tr>
-        <tr>
-          <td><span>*</span>所在城市：</td>
-          <td><select name="sheng">
-              <option>省</option>
-              <option>上海</option>
-            </select>
-            <select name="shi">
-              <option>市</option>
-              <option>上海</option>
-            </select>
-            <select name="qu">
-              <option>区</option>
-              <option>宝山</option>
-            </select></td>
-        </tr>
-        <tr>
-          <td>&nbsp;性别：</td>
-          <td><input type="radio" name="sex" value="0" id="person" class="pr1" datatype="*" nullmsg="请选择性别！"  />
-            男　
-            <input type="radio" name="sex" value="1" id="company" class="pr1" />
-            女</td>
-        </tr>
-        <tr>
-          <td>&nbsp;EMAIL:</td>
-          <td><input type="text" class="text1" datatype="e" name="email" /></td>
-        </tr>
-        <tr>
-          <td>&nbsp;身份证:</td>
-          <td><input type="text" class="text1 inputxt" name="idcard" datatype="idcard" nullmsg="请填写身份证号码！" errormsg="您填写的身份证号码不对！必须位数字且不低于18位" /></td>
-        </tr>
-        <tr>
-          <td>&nbsp;&nbsp;类别：</td>
-          <td>艺术家</td>
-        </tr>
-        <tr>
-          <td>&nbsp;个人简介：</td>
-          <td><textarea tip="请在这里输入您的简介。" altercss="gray" class="gray" name="details"  datatype="*"value="">请在这里输入您的简介。</textarea></td>
-        </tr>
-        <tr>
-          <td>&nbsp;</td>
-          <td><input  value="保存资料" type="submit" class="submit" /></td>
-        </tr>
-      </table>
-      </form>
+   <div class="address">
+    <div class="addList">
+     <label><span class="red">* </span>选择地区:</label>
+     <select>
+      <option>请选择省</option>
+     </select>
+     <select>
+      <option>请选择市</option>
+     </select>
+     <select>
+      <option>请选择地区</option>
+     </select>
+    </div><!--addList-->
+    <div class="addList">
+     <label><span class="red">* </span>详细地址:</label>
+     <input type="text" />
+    </div><!--addList-->
+    <div class="addList">
+     <label><span class="red">* </span>邮政编码:</label>
+     <input type="text" />
+    </div><!--addList-->
+    <div class="addList">
+     <label><span class="red">* </span>收件人:</label>
+     <input type="text" />
+    </div><!--addList-->
+    <div class="addList">
+     <label><span class="red">* </span>手机号码:</label>
+     <input type="text" /> 或者固定电话 <input type="text" />
+    </div><!--addList--> 
+    <div class="addList2">
+     <input name="" value=" 确 认 " type="submit" class="submit" />
+    </div><!--addList2/-->
+   </div><!--address/-->
+   <table class="vipAdress">
+    <tr>
+     <th>收货人</th>
+     <th>所在地区</th>
+     <th>街道地址</th>
+     <th>邮编</th>
+     <th>电话/手机</th>
+     <th>操作</th>
+    </tr>
+    <tr>
+     <td>张益达</td>
+     <td>上海 上海市 普陀区</td>
+     <td>曹杨路1040弄中友大厦一号楼19楼</td>
+     <td>200000</td>
+     <td>13569888523</td>
+     <td><span class="green upd">[修改]</span> | <span class="green add">[添加]</span> </td>
+    </tr>
+    <c:forEach var="add" items="${adds}">
+		<tr>
+			
+			<td>${add.userId}</td>
+			<td>${add.detalis}</td>
+			
+			<%-- <td>
+				<a class="btn btn-default btn-xs" href="${contextPath}/customers/${customer.id}/details">详情</a>
+				<a class="btn btn-default btn-xs" href="${contextPath}/customers/${customer.id}/edit">修改</a>
+				<form action="${contextPath}/customers/${customer.id}/delete" method="post"
+				      style="display: inline;">
+					<button type="submit" class="btn btn-danger btn-xs">删除</button>
+				</form>
+			</td> --%>
+		</tr>
+	</c:forEach>
+   </table><!--vipAdress/-->
   </div><!--vipRight/-->
   <div class="clears"></div>
  </div><!--vipBox/-->
  <div class="footBox">
   <div class="footers">
    <div class="footersLeft">
-    <a href="index.html"><img src="${contextPath}/assets/images/ftlogo.jpg" width="240" height="64" /></a>
+    <a href="index.html"><img src="images/ftlogo.jpg" width="240" height="64" /></a>
     <h3 class="ftphone">400 000 0000 </h3>
     <div class="ftKe">
      客服 7x24小时(全年无休)<br />

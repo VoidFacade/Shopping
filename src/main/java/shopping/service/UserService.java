@@ -2,6 +2,7 @@ package shopping.service;
 
 import java.util.List;
 
+import shopping.entity.Address;
 import shopping.entity.Car;
 import shopping.entity.Goods;
 import shopping.entity.Order;
@@ -31,5 +32,7 @@ public interface UserService {
 	List<Car> getUserCars(Long id);
 
 	void changeVipPwd(String pwd1, Long long1);
+
+	List<Address> getUserAddress(Long id);
 
 }

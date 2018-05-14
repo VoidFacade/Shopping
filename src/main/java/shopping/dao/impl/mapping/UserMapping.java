@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
+import shopping.entity.Address;
 import shopping.entity.Car;
 import shopping.entity.Goods;
 import shopping.entity.Order;
@@ -30,4 +31,6 @@ public interface UserMapping {
 	List<Car> getUserCars(Long id);
 
 	void changeVipPwd(@Param("pwd1") String pwd1,@Param("id") Long id);
+
+	List<Address> getUserAddress(Long id);
 }

@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import shopping.entity.Address;
 import shopping.entity.Car;
 import shopping.entity.Goods;
 import shopping.entity.Order;
@@ -126,6 +127,16 @@ public class UserController {
 			return "vipPwd";
 		}
 	}
+	
+	@RequestMapping(method = RequestMethod.GET, value = "/vipAddress/{id}")
+	public String getVipAddress(@AuthenticationPrincipal(expression = "user") User curUser, Model model){
+		System.out.println(curUser.getId()+"address");
+		List<Address> adds = userSerive.getUserAddress(curUser.getId());
+		model.addAttribute("adds", adds);
+		return "vipAddress";
+	}
+	
+	
 	
 
 }

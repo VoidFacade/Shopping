@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import shopping.dao.UserDao;
+import shopping.entity.Address;
 import shopping.entity.Car;
 import shopping.entity.Goods;
 import shopping.entity.Order;
@@ -107,6 +108,11 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 		pwd1 = passwordEncoder.encode(pwd1);
 		
 		userDao.changeVipPwd(pwd1,id);
+	}
+
+	@Override
+	public List<Address> getUserAddress(Long id) {
+		return userDao.getUserAddress(id);
 	}
 
 

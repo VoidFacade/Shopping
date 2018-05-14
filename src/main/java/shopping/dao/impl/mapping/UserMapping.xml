@@ -53,5 +53,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		password = #{pwd1}
 		where id = #{id}
 	</update>	
+	
+	<select id = "getUserAddress" resultType="Address" >
+		SELECT * FROM adress
+	</select>
 </mapper>
 

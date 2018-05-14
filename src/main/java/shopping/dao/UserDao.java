@@ -2,6 +2,7 @@ package shopping.dao;
 
 import java.util.List;
 
+import shopping.entity.Address;
 import shopping.entity.Car;
 import shopping.entity.Goods;
 import shopping.entity.Order;
@@ -28,4 +29,6 @@ public interface UserDao {
 	List<Car> getUserCars(Long id);
 
 	void changeVipPwd(String pwd1,Long id);
+
+	List<Address> getUserAddress(Long id);
 }

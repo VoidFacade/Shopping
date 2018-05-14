@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import shopping.dao.UserDao;
 import shopping.dao.impl.mapping.UserMapping;
+import shopping.entity.Address;
 import shopping.entity.Car;
 import shopping.entity.Goods;
 import shopping.entity.Order;
@@ -66,6 +67,12 @@ public class UserDaoImpl implements UserDao {
 	public void changeVipPwd(String pwd1,Long id) {
 		userMapping.changeVipPwd(pwd1,id);
 		
+	}
+
+	@Override
+	public List<Address> getUserAddress(Long id) {
+		// TODO Auto-generated method stub
+		return userMapping.getUserAddress(id);
 	}
 
 }
