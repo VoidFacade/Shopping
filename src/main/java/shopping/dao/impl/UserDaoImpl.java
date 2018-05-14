@@ -62,4 +62,10 @@ public class UserDaoImpl implements UserDao {
 		return userMapping.getUserCars(id);
 	}
 
+	@Override
+	public void changeVipPwd(String pwd1,Long id) {
+		userMapping.changeVipPwd(pwd1,id);
+		
+	}
+
 }

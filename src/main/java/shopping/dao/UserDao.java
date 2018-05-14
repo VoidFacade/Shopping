@@ -26,4 +26,6 @@ public interface UserDao {
 	List<Order> getUserOrder(Long id);
 
 	List<Car> getUserCars(Long id);
+
+	void changeVipPwd(String pwd1,Long id);
 }

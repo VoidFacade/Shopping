@@ -107,5 +107,25 @@ public class UserController {
 		return "vipShoucang";
 	}
 	
+	@RequestMapping(method = RequestMethod.GET, value = "/vipPwd/{id}")
+	public String getVipPwd(@AuthenticationPrincipal(expression = "user") User curUser, Model model){
+		System.out.println(curUser.getId());
+		return "vipPwd";
+	}
+	
+	
+	@RequestMapping(method = RequestMethod.POST, value = "/vipPwd/{id}")
+	public String changeVipPwd(@AuthenticationPrincipal(expression = "user") User curUser,
+			@RequestParam String pwd1,@RequestParam String pwd2){
+		if(pwd1.equals(pwd2)){
+			System.out.println("修改密码");
+			userSerive.changeVipPwd(pwd1,curUser.getId());
+			return "redirect:/vip/{id}";
+		}else{
+			System.out.println("密码不匹配");
+			return "vipPwd";
+		}
+	}
+	
 
 }

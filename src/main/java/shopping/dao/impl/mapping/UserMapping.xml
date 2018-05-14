@@ -44,9 +44,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>	
 	
 	<select id = "getUserCars" resultType="Car" >
-	
 		SELECT * FROM cars
+	</select>
 	
-	</select>	
+	<update id="changeVipPwd">
+		update users 
+		set 
+		password = #{pwd1}
+		where id = #{id}
+	</update>	
 </mapper>
 

@@ -30,4 +30,6 @@ public interface UserService {
 
 	List<Car> getUserCars(Long id);
 
+	void changeVipPwd(String pwd1, Long long1);
+
 }

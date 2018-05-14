@@ -102,6 +102,13 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 		return userDao.getUserCars(id);
 	}
 
+	@Override
+	public void changeVipPwd(String pwd1,Long id) {
+		pwd1 = passwordEncoder.encode(pwd1);
+		
+		userDao.changeVipPwd(pwd1,id);
+	}
+
 
 }
 
