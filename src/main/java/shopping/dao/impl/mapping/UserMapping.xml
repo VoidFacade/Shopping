@@ -17,8 +17,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		values(users_seq.nextval,#{username},#{email},#{phonenumber},#{password})
 	</insert>
 	
-	<select id="findAllCommoditys" resultType="Commodity">
-		select * from Commodity 
+	<select id="findAllCommoditys" resultType="Goods">
+		select * from goods 
 	</select>
 	
 	
@@ -36,5 +36,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		email = #{email},idCard = #{idcard},details = #{details}
 		where id = #{id}
 	</update>
+	
+	<select id = "getUserOrder" resultType="Order" >
+	
+		SELECT * FROM order_user
+	
+	</select>	
 </mapper>
 

@@ -2,12 +2,13 @@ package shopping.dao.impl.mapping;
 
 import java.util.List;
 
-import shopping.entity.Commodity;
+import shopping.entity.Goods;
+import shopping.entity.Order;
 import shopping.entity.User;
 import shopping.entity.UserDetalis;
 
 public interface UserMapping {
-	List<Commodity> findAllCommoditys();
+	List<Goods> findAllCommoditys();
 
 	User findOneByUsername(String username);
 
@@ -20,4 +21,6 @@ public interface UserMapping {
 	void createDatalis(UserDetalis userDetalis);
 
 	void updateDetalis(UserDetalis userDetalis);
+
+	List<Order> getUserOrder(Long id);
 }

@@ -1,14 +1,14 @@
 package shopping.entity;
 //商品类
-public class Commodity {
+public class Goods {
 	
 	private Long id;
 	private String name;
 	private String details;
 	private int conunt;
-	public Commodity() {
+	public Goods() {
 	}
-	public Commodity(Long id, String name, String details, int conunt) {
+	public Goods(Long id, String name, String details, int conunt) {
 		this.id = id;
 		this.name = name;
 		this.details = details;
@@ -40,7 +40,7 @@ public class Commodity {
 	}
 	@Override
 	public String toString() {
-		return "Commodity [id=" + id + ", name=" + name + ", details=" + details + ", conunt=" + conunt + "]";
+		return "Goods [id=" + id + ", name=" + name + ", details=" + details + ", conunt=" + conunt + "]";
 	}
 	
 	

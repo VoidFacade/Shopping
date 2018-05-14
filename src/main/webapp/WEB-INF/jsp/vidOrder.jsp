@@ -106,38 +106,16 @@
       <td><a href="success.html"><strong>等待付款</strong></a></td>
       <td><a href="vipXiaofei.html">查看</a></td>
      </tr>
-     <tr>
-      <td><a href="proinfo.html"><img src="${contextPath}/assets/images/phone.png" width="60" height="55"/></a></td>
+ 	
+ 	<c:forEach var="order" items="${orders}">
+ 	  <td><a href="proinfo.html"><img src="${contextPath}/assets/images/phone.png" width="60" height="55"/></a></td>
       <td>张益达</td>
       <td>￥16.9<br />支付宝支付</td>
       <td>2014年6月23日11:32:17</td>
       <td><a href="success.html"><strong>等待付款</strong></a></td>
       <td><a href="vipXiaofei.html">查看</a></td>
-     </tr>
-     <tr>
-      <td><a href="proinfo.html"><img src="${contextPath}/assets/images/phone.png" width="60" height="55"/></a></td>
-      <td>张益达</td>
-      <td>￥16.9<br />支付宝支付</td>
-      <td>2014年6月23日11:32:17</td>
-      <td><a href="success.html"><strong>等待付款</strong></a></td>
-      <td><a href="vipXiaofei.html">查看</a></td>
-     </tr>
-     <tr>
-      <td><a href="proinfo.html"><img src="${contextPath}/assets/images/phone.png" width="60" height="55"/></a></td>
-      <td>张益达</td>
-      <td>￥16.9<br />支付宝支付</td>
-      <td>2014年6月23日11:32:17</td>
-      <td><a href="success.html"><strong>等待付款</strong></a></td>
-      <td><a href="vipXiaofei.html">查看</a></td>
-     </tr>
-     <tr>
-      <td><a href="proinfo.html"><img src="${contextPath}/assets/images/phone.png" width="60" height="55"/></a></td>
-      <td>张益达</td>
-      <td>￥16.9<br />支付宝支付</td>
-      <td>2014年6月23日11:32:17</td>
-      <td><a href="success.html"><strong>等待付款</strong></a></td>
-      <td><a href="vipXiaofei.html">查看</a></td>
-     </tr>
+ 	
+ 	</c:forEach>
     </table><!--vipOrder/-->
   </div><!--vipRight/-->
   <div class="clears"></div>

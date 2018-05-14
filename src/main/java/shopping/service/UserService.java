@@ -2,7 +2,8 @@ package shopping.service;
 
 import java.util.List;
 
-import shopping.entity.Commodity;
+import shopping.entity.Goods;
+import shopping.entity.Order;
 import shopping.entity.User;
 import shopping.entity.UserDetalis;
 
@@ -14,7 +15,7 @@ public interface UserService {
 
 	User usernameExist(String username);
 
-	List<Commodity> findAllCommoditys();
+	List<Goods> findAllCommoditys();
 
 	User findOne(String username);
 
@@ -23,5 +24,7 @@ public interface UserService {
 	void createDetalis(UserDetalis userDetalis);
 
 	void updateDetalis(UserDetalis userDetalis);
+
+	List<Order> getUserOrder(Long id);
 
 }

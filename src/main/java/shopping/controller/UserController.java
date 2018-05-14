@@ -16,7 +16,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import shopping.entity.Commodity;
+import shopping.entity.Goods;
+import shopping.entity.Order;
 import shopping.entity.User;
 import shopping.entity.UserDetalis;
 import shopping.service.UserService;
@@ -61,8 +62,8 @@ public class UserController {
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/prolist")
 	public String getProlist(Model model){
-		List<Commodity> commoditys = userSerive.findAllCommoditys();
-		model.addAttribute("commoditys",commoditys);
+		List<Goods> goods = userSerive.findAllCommoditys();
+		model.addAttribute("goods",goods);
 		return "prolist";
 		
 	}
@@ -91,6 +92,8 @@ public class UserController {
 	@RequestMapping(method = RequestMethod.GET, value = "/vipOrder/{id}")
 	public String getVipOrder(@AuthenticationPrincipal(expression = "user") User curUser, Model model){
 		System.out.println(curUser.getId());
+		List<Order> orders = userSerive.getUserOrder(curUser.getId());
+		model.addAttribute("orders", orders);
 		
 		return "vidOrder";
 		

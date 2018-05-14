@@ -2,7 +2,8 @@ package shopping.dao;
 
 import java.util.List;
 
-import shopping.entity.Commodity;
+import shopping.entity.Goods;
+import shopping.entity.Order;
 import shopping.entity.User;
 import shopping.entity.UserDetalis;
 
@@ -11,7 +12,7 @@ public interface UserDao {
 
 	void reg(User user);
 
-	List<Commodity> findAllCommoditys();
+	List<Goods> findAllCommoditys();
 
 	User findUser(Long id);
 
@@ -20,4 +21,6 @@ public interface UserDao {
 	void createDatalis(shopping.entity.UserDetalis userDetalis);
 
 	void updateDetalis(UserDetalis userDetalis);
+
+	List<Order> getUserOrder(Long id);
 }

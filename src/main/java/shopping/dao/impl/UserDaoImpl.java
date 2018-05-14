@@ -7,7 +7,8 @@ import org.springframework.stereotype.Repository;
 
 import shopping.dao.UserDao;
 import shopping.dao.impl.mapping.UserMapping;
-import shopping.entity.Commodity;
+import shopping.entity.Goods;
+import shopping.entity.Order;
 import shopping.entity.User;
 import shopping.entity.UserDetalis;
 @Repository
@@ -26,7 +27,7 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public List<Commodity> findAllCommoditys() {
+	public List<Goods> findAllCommoditys() {
 		return userMapping.findAllCommoditys();
 	}
 
@@ -48,6 +49,11 @@ public class UserDaoImpl implements UserDao {
 	@Override
 	public void updateDetalis(UserDetalis userDetalis) {
 		userMapping.updateDetalis(userDetalis);
+	}
+
+	@Override
+	public List<Order> getUserOrder(Long id) {
+		return userMapping.getUserOrder(id);
 	}
 
 }

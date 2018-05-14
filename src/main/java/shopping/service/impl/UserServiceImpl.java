@@ -15,7 +15,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import shopping.dao.UserDao;
-import shopping.entity.Commodity;
+import shopping.entity.Goods;
+import shopping.entity.Order;
 import shopping.entity.User;
 import shopping.entity.UserDetalis;
 import shopping.service.UserService;
@@ -64,7 +65,7 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 	}
 
 	@Override
-	public List<Commodity> findAllCommoditys() {
+	public List<Goods> findAllCommoditys() {
 		return userDao.findAllCommoditys();
 	}
 
@@ -87,6 +88,11 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 	@Override
 	public void updateDetalis(UserDetalis userDetalis) {
 		userDao.updateDetalis(userDetalis);
+	}
+
+	@Override
+	public List<Order> getUserOrder(Long id) {
+		return userDao.getUserOrder(id);
 	}
 
 

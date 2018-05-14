@@ -5,12 +5,12 @@ import java.util.List;
 public class Car {
 	
 	private Long id;
-	private List<Commodity> commoditys;
+	private List<Goods> commoditys;
 
 	public Car() {
 	}
 
-	public Car(Long id,List<Commodity> commoditys) {
+	public Car(Long id,List<Goods> commoditys) {
 		this.id = id;
 		this.commoditys = commoditys;
 	}
@@ -23,11 +23,11 @@ public class Car {
 		this.id = id;
 	}
 
-	public List<Commodity> getCommoditys() {
+	public List<Goods> getCommoditys() {
 		return commoditys;
 	}
 
-	public void setCommoditys(List<Commodity> commoditys) {
+	public void setCommoditys(List<Goods> commoditys) {
 		this.commoditys = commoditys;
 	}
 
