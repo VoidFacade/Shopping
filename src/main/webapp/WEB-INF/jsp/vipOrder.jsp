@@ -113,7 +113,7 @@
       <td>￥16.9<br />支付宝支付</td>
       <td>2014年6月23日11:32:17</td>
       <td><a href="success.html"><strong>等待付款</strong></a></td>
-      <td><a href="vipXiaofei.html">查看</a></td>
+      <td><a href="${contextPath}/vipXiaofei/${order.orderId}">查看</a></td>
  	
  	</c:forEach>
     </table><!--vipOrder/-->

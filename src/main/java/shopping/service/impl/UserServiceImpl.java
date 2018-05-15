@@ -19,6 +19,7 @@ import shopping.entity.Address;
 import shopping.entity.Car;
 import shopping.entity.Goods;
 import shopping.entity.Order;
+import shopping.entity.OrderDetalis;
 import shopping.entity.User;
 import shopping.entity.UserDetalis;
 import shopping.service.UserService;
@@ -113,6 +114,11 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 	@Override
 	public List<Address> getUserAddress(Long id) {
 		return userDao.getUserAddress(id);
+	}
+
+	@Override
+	public OrderDetalis getOrderDetalis(Long orderId) {
+		return userDao.getOrderDetalis(orderId);
 	}
 
 

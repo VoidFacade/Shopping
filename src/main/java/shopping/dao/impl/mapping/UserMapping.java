@@ -8,6 +8,7 @@ import shopping.entity.Address;
 import shopping.entity.Car;
 import shopping.entity.Goods;
 import shopping.entity.Order;
+import shopping.entity.OrderDetalis;
 import shopping.entity.User;
 import shopping.entity.UserDetalis;
 
@@ -33,4 +34,6 @@ public interface UserMapping {
 	void changeVipPwd(@Param("pwd1") String pwd1,@Param("id") Long id);
 
 	List<Address> getUserAddress(Long id);
+
+	OrderDetalis getOrderDetalis(@Param("orderId") Long orderId);
 }

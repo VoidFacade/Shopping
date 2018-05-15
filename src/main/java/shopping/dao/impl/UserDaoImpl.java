@@ -11,6 +11,7 @@ import shopping.entity.Address;
 import shopping.entity.Car;
 import shopping.entity.Goods;
 import shopping.entity.Order;
+import shopping.entity.OrderDetalis;
 import shopping.entity.User;
 import shopping.entity.UserDetalis;
 @Repository
@@ -73,6 +74,11 @@ public class UserDaoImpl implements UserDao {
 	public List<Address> getUserAddress(Long id) {
 		// TODO Auto-generated method stub
 		return userMapping.getUserAddress(id);
+	}
+
+	@Override
+	public OrderDetalis getOrderDetalis(Long orderId) {
+		return userMapping.getOrderDetalis(orderId);
 	}
 
 }

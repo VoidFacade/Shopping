@@ -1,6 +1,7 @@
 package shopping.entity;
 
 public class Order {
+	
 	private Long userId;
 	private String state;
 	private Long addressId;

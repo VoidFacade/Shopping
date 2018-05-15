@@ -20,6 +20,7 @@ import shopping.entity.Address;
 import shopping.entity.Car;
 import shopping.entity.Goods;
 import shopping.entity.Order;
+import shopping.entity.OrderDetalis;
 import shopping.entity.User;
 import shopping.entity.UserDetalis;
 import shopping.service.UserService;
@@ -102,7 +103,6 @@ public class UserController {
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/vipShoucang/{id}")
 	public String getVipShoucang(@AuthenticationPrincipal(expression = "user") User curUser, Model model){
-		System.out.println(curUser.getId());
 		List<Car> cars = userSerive.getUserCars(curUser.getId());
 		model.addAttribute("cars", cars);
 		return "vipShoucang";
@@ -110,7 +110,6 @@ public class UserController {
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/vipPwd/{id}")
 	public String getVipPwd(@AuthenticationPrincipal(expression = "user") User curUser, Model model){
-		System.out.println(curUser.getId());
 		return "vipPwd";
 	}
 	
@@ -135,12 +134,16 @@ public class UserController {
 		return "vipAddress";
 	}
 	
-	@RequestMapping(method = RequestMethod.GET, value = "/vipXiaofei/{id}")
-	public String getVipXiaofei(@AuthenticationPrincipal(expression = "user") User curUser, Model model){
-		System.out.println("vipxiaofei");
-		//List<Address> adds = userSerive.getUserOrder(curUser.getId());
-		//model.addAttribute("adds", adds);
-		return "vipAddress";
+	@RequestMapping(method = RequestMethod.GET, value = "/vipXiaofei/{orderId}")
+	public String getVipXiaofei(@AuthenticationPrincipal(expression = "user") User curUser, 
+			Model model,@PathVariable Long orderId){
+//		System.out.println("vipxiaofei");
+		OrderDetalis orderDetalis = userSerive.getOrderDetalis(orderId);
+		model.addAttribute("orderDetalis", orderDetalis);
+		model.addAttribute("curUser", curUser);
+		System.out.println(curUser.getId());
+		System.out.println(orderDetalis.getOrderId());
+		return "vipXiaofei";
 	}
 	
 	

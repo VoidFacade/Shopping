@@ -6,6 +6,7 @@ import shopping.entity.Address;
 import shopping.entity.Car;
 import shopping.entity.Goods;
 import shopping.entity.Order;
+import shopping.entity.OrderDetalis;
 import shopping.entity.User;
 import shopping.entity.UserDetalis;
 
@@ -31,4 +32,6 @@ public interface UserDao {
 	void changeVipPwd(String pwd1,Long id);
 
 	List<Address> getUserAddress(Long id);
+
+	OrderDetalis getOrderDetalis(Long orderId);
 }
