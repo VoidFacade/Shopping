@@ -38,4 +38,6 @@ public interface UserService {
 
 	OrderDetalis getOrderDetalis(Long orderId);
 
+	Goods getGoodsDetalis(String id);
+
 }

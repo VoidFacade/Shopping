@@ -81,4 +81,9 @@ public class UserDaoImpl implements UserDao {
 		return userMapping.getOrderDetalis(orderId);
 	}
 
+	@Override
+	public Goods getGoodsDetalis(String id) {
+		return userMapping.getGoodsDetalis(id);
+	}
+
 }

@@ -34,4 +34,6 @@ public interface UserDao {
 	List<Address> getUserAddress(Long id);
 
 	OrderDetalis getOrderDetalis(Long orderId);
+
+	Goods getGoodsDetalis(String id);
 }

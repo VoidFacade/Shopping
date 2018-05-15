@@ -65,8 +65,8 @@ public class UserController {
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/prolist")
 	public String getProlist(Model model){
-		List<Goods> goods = userSerive.findAllCommoditys();
-		model.addAttribute("goods",goods);
+		List<Goods> goodes = userSerive.findAllCommoditys();
+		model.addAttribute("goodes",goodes);
 		return "prolist";
 		
 	}
@@ -144,6 +144,14 @@ public class UserController {
 		System.out.println(curUser.getId());
 		System.out.println(orderDetalis.getOrderId());
 		return "vipXiaofei";
+	}
+	
+	@RequestMapping(method = RequestMethod.GET, value = "/buyinfo/{id}")
+	public String getBuyinfo(@AuthenticationPrincipal(expression = "user") User curUser, 
+			Model model,@PathVariable String id){
+		Goods goods = userSerive.getGoodsDetalis(id);
+		model.addAttribute("goods", goods);
+		return "buyinfo";
 	}
 	
 	

@@ -23,16 +23,16 @@
 	<h3>客户列表</h3>
 	<table class="table table-striped">
 		<tr>
-			<th>#</th><th>商品名</th><th>商品详情</th><th>操作</th>
+			<th>#</th><th>商品名</th><th>商品详情</th><th>商品价格</th><th>商品库存</th><th>操作</th>
 		</tr>
 		
-	<c:forEach var="commodity" items="${commoditys}">
+	<c:forEach var="goods" items="${goodes}">
 		<tr>
-			
-			<td>#${commodity.id}</td>
-			<td>${commodity.name}</td>
-			<td>${commodity.detalis}</td>
-			
+			<td>#</td>
+			<td><a href="${contextPath}/buyinfo/${goods.id}">${goods.id}</a></td>
+			<td>${goods.detalis}</td>
+			<td>${goods.price}</td>
+			<td>${goods.stock}</td>
 			<td>
 				<%-- <a class="btn btn-default btn-xs" href="${contextPath}/customers/${customer.id}/details">详情</a>
 				<a class="btn btn-default btn-xs" href="${contextPath}/customers/${customer.id}/edit">修改</a>
@@ -517,7 +517,7 @@
   </ul><!--proSelect/-->
   <div class="phoneBox">
    <dl>
-    <dt><a href="buyinfo.html"><img src="${contextPath}/assets/images/phone5.png" /></a></dt>
+    <dt><a href="${contextPath}/buyinfo/${goods.id}"><img src="${contextPath}/assets/images/phone5.png" /></a></dt>
     <dd>
      <h3>￥4800.00</h3>
      <div class="phonePars">

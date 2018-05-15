@@ -121,6 +121,11 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 		return userDao.getOrderDetalis(orderId);
 	}
 
+	@Override
+	public Goods getGoodsDetalis(String id) {
+		return userDao.getGoodsDetalis(id);
+	}
+
 
 }
 

@@ -62,5 +62,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	SELECT * FROM ORDERDETALIS where orderId =#{orderId}
 	</select>
+	
+	<select id="getGoodsDetalis" resultType="Goods">
+	
+	SELECT * FROM goods where id =#{Id}
+	</select>
 </mapper>
 

@@ -36,4 +36,6 @@ public interface UserMapping {
 	List<Address> getUserAddress(Long id);
 
 	OrderDetalis getOrderDetalis(@Param("orderId") Long orderId);
+
+	Goods getGoodsDetalis(@Param("Id") String id);
 }
