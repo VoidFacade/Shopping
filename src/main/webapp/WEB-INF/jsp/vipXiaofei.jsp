@@ -1,15 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+        <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
-
-<c:set var="contextPath" value="${pageContext.request.contextPath}"></c:set>
+<c:set var="contextPath" value="${pageContext.request.contextPath}"></c:set> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>unique</title>
+<title>消费记录</title>
 <link type="text/css" href="${contextPath}/assets/css/css.css" rel="stylesheet" />
 <script type="text/javascript" src="${contextPath}/assets/js/js/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" src="${contextPath}/assets/js/js.js"></script>
@@ -77,13 +76,13 @@
    <h3 class="vipName">测试webqin</h3>
    <dl class="vipNav">
     <dt class="vip_1 vipCur">买家中心</dt>
-     <dd><a href="${contextPath}/vipOrder/<sec:authentication property="principal.user.id"/>">我的订单</a></dd>
-     <dd><a href="${contextPath}/vipShoucang/<sec:authentication property="principal.user.id"/>">收藏关注</a></dd>
+     <dd><a href="vipOrder.html">我的订单</a></dd>
+     <dd><a href="vipShoucang.html">收藏关注</a></dd>
     <dt class="vip_2">账户设置</dt>
-     <dd class="ddCur"><a href="#">个人信息</a></dd>
-     <dd><a href="${contextPath}/vipPwd/<sec:authentication property="principal.user.id"/>">密码修改</a></dd>
-     <dd><a href="${contextPath}/vipAddress/<sec:authentication property="principal.user.id"/>">收货地址</a></dd>
-     <dd><a href="${contextPath}/vipXiaofei/<sec:authentication property="principal.user.id"/>">消费记录</a></dd>
+     <dd><a href="vip.html">个人信息</a></dd>
+     <dd><a href="vipPwd.html">密码修改</a></dd>
+     <dd><a href="vipAddress.html">收货地址</a></dd>
+     <dd class="ddCur"><a href="vipXiaofei.html">消费记录</a></dd>
     <dt class="vip_3">客户服务</dt>
      <dd><a href="vipQuxiao.html">取消订单/退货</a></dd>
      
@@ -91,61 +90,39 @@
    </dl><!--vipNav/-->
   </div><!--vipLeft/-->
   <div class="vipRight">
-   <h2 class="vipTitle">个人中心</h2>
+   <h2 class="vipTitle">订单详情</h2>
    
-   <form action="${contextPath}/vip/${user.id}" class="registerform" method= "post">
-   <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> 
-      <table class="grzx" width="705" border="0" cellspacing="0" cellpadding="0">
-        <tr>
-          <td width="90"><span>*</span>真实姓名：</td>
-          <td width="430"><input name="name" type="text" class="text inputxt" /></td>
-          <td rowspan="8" valign="top"><div id="tx"><img src="${contextPath}/assets/images/vipImg.jpg" /></div>
-            <span class="file"><input name="" type="file" class="file1" /></span></td>
-        </tr>
-        <tr>
-          <td><span>*</span>所在城市：</td>
-          <td><select name="sheng">
-              <option>省</option>
-              <option>上海</option>
-            </select>
-            <select name="shi">
-              <option>市</option>
-              <option>上海</option>
-            </select>
-            <select name="qu">
-              <option>区</option>
-              <option>宝山</option>
-            </select></td>
-        </tr>
-        <tr>
-          <td>&nbsp;性别：</td>
-          <td><input type="radio" name="sex" value="0" id="person" class="pr1" datatype="*" nullmsg="请选择性别！"  />
-            男　
-            <input type="radio" name="sex" value="1" id="company" class="pr1" />
-            女</td>
-        </tr>
-        <tr>
-          <td>&nbsp;EMAIL:</td>
-          <td><input type="text" class="text1" datatype="e" name="email" /></td>
-        </tr>
-        <tr>
-          <td>&nbsp;身份证:</td>
-          <td><input type="text" class="text1 inputxt" name="idcard" datatype="idcard" nullmsg="请填写身份证号码！" errormsg="您填写的身份证号码不对！必须位数字且不低于18位" /></td>
-        </tr>
-        <tr>
-          <td>&nbsp;&nbsp;类别：</td>
-          <td>艺术家</td>
-        </tr>
-        <tr>
-          <td>&nbsp;个人简介：</td>
-          <td><textarea tip="请在这里输入您的简介。" altercss="gray" class="gray" name="details"  datatype="*"value="">请在这里输入您的简介。</textarea></td>
-        </tr>
-        <tr>
-          <td>&nbsp;</td>
-          <td><input  value="保存资料" type="submit" class="submit" /></td>
-        </tr>
-      </table>
-      </form>
+   <table class="orderDeatils">
+    <tr>
+     <th>订单编号</th>
+     <td>465489132154416</td>
+    </tr>
+    <tr>
+     <th>商品名称</th>
+     <td>妙捷 一次性纸杯</td>
+    </tr>
+    <tr>
+     <th>订单价钱</th>
+     <td>￥185.80</td>
+    </tr>
+    <tr>
+     <th>订单信息</th>
+     <td> 
+张益达，13572607270，， 陕西省 汉中市 勉县 勉县东方眼科医院，724200</td>
+    </tr>
+    <tr>
+     <th>商家</th>
+     <td>纯绿商城</td>
+    </tr>
+    <tr>
+     <th>支付方式</th>
+     <td>支付宝支付</td>
+    </tr>
+    <tr>
+     <th>支付状态</th>
+     <td>成功</td>
+    </tr>
+   </table> 
   </div><!--vipRight/-->
   <div class="clears"></div>
  </div><!--vipBox/-->

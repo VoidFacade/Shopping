@@ -130,9 +130,16 @@ public class UserController {
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/vipAddress/{id}")
 	public String getVipAddress(@AuthenticationPrincipal(expression = "user") User curUser, Model model){
-		System.out.println(curUser.getId()+"address");
 		List<Address> adds = userSerive.getUserAddress(curUser.getId());
 		model.addAttribute("adds", adds);
+		return "vipAddress";
+	}
+	
+	@RequestMapping(method = RequestMethod.GET, value = "/vipXiaofei/{id}")
+	public String getVipXiaofei(@AuthenticationPrincipal(expression = "user") User curUser, Model model){
+		System.out.println("vipxiaofei");
+		//List<Address> adds = userSerive.getUserOrder(curUser.getId());
+		//model.addAttribute("adds", adds);
 		return "vipAddress";
 	}
 	
