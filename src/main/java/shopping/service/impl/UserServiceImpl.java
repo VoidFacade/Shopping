@@ -126,6 +126,11 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 		return userDao.getGoodsDetalis(id);
 	}
 
+	@Override
+	public Car getCar(Long id) {
+		return userDao.getCar(id);
+	}
+
 
 }
 

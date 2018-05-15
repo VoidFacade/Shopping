@@ -54,7 +54,7 @@
    <a href="reg.html">注册</a>
    <ul class="topNav">
      <li><a href="order.html">我的订单 </a></li>
-    <li class="gouwuche"><a href="car.html">购物车</a> <strong style="color:#C94E13;">3</strong></li>
+    <li class="gouwuche"><a href="${contextPath}/car/<sec:authentication property="principal.user.id"/>">购物车</a> <strong style="color:#C94E13;">3</strong></li>
     <li class="shoucangjia"><a href="shoucang.html">收藏夹</a></li>
     <li class="kefus"><a href="#">联系客服</a></li>
     <li><a href="#" class="lan">中文</a></li>

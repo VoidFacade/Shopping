@@ -86,4 +86,10 @@ public class UserDaoImpl implements UserDao {
 		return userMapping.getGoodsDetalis(id);
 	}
 
+	@Override
+	public Car getCar(Long id) {
+		// TODO Auto-generated method stub
+		return userMapping.getCar(id);
+	}
+
 }

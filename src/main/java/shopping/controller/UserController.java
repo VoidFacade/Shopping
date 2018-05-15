@@ -154,6 +154,15 @@ public class UserController {
 		return "buyinfo";
 	}
 	
+	@RequestMapping(method = RequestMethod.GET, value = "/car/{id}")
+	public String getCar(@AuthenticationPrincipal(expression = "user") User curUser, 
+			Model model,@PathVariable String id){
+		Car car = userSerive.getCar(curUser.getId());
+		model.addAttribute("car", car);
+		model.addAttribute("curUser", curUser);
+		return "car";
+	}
+	
 	
 	
 

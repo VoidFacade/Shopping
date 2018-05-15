@@ -40,4 +40,6 @@ public interface UserService {
 
 	Goods getGoodsDetalis(String id);
 
+	Car getCar(Long id);
+
 }

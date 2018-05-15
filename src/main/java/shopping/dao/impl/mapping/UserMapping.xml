@@ -67,5 +67,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	SELECT * FROM goods where id =#{Id}
 	</select>
+	
+	<select id="getCar" resultType="Car">
+	
+		SELECT * FROM cars where userId =#{Id}
+	
+	</select>
 </mapper>
 

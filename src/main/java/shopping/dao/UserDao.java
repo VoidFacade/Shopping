@@ -36,4 +36,6 @@ public interface UserDao {
 	OrderDetalis getOrderDetalis(Long orderId);
 
 	Goods getGoodsDetalis(String id);
+
+	Car getCar(Long id);
 }

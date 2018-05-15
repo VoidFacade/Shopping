@@ -38,4 +38,6 @@ public interface UserMapping {
 	OrderDetalis getOrderDetalis(@Param("orderId") Long orderId);
 
 	Goods getGoodsDetalis(@Param("Id") String id);
+
+	Car getCar(@Param("Id") Long id);
 }
