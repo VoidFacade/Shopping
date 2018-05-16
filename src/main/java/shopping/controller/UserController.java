@@ -163,7 +163,14 @@ public class UserController {
 		return "car";
 	}
 	
-	
+	@RequestMapping(method = RequestMethod.GET, value = "/order/{id}")
+	public String getOrder(@AuthenticationPrincipal(expression = "user") User curUser, 
+			Model model,@PathVariable String id){
+		Car car = userSerive.getCar(curUser.getId());
+		model.addAttribute("car", car);
+		model.addAttribute("curUser", curUser);
+		return "order";
+	}
 	
 
 }
