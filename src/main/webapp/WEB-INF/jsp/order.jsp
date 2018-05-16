@@ -242,7 +242,7 @@
     </tr>
     <tr>
      <td colspan="2" style="height:50px;">
-      <a href="success.html"><img src="images/tijao.png" width="142" height="32" /></a>
+      <a href="${contextPath}/success/<sec:authentication property="principal.user.id"/>"><img src="images/tijao.png" width="142" height="32" /></a>
      </td>
     </tr>
    </table><!--zongjia/-->

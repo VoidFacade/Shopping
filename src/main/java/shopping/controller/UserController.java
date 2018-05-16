@@ -172,5 +172,11 @@ public class UserController {
 		return "order";
 	}
 	
+	@RequestMapping(method = RequestMethod.GET, value = "/success/{id}")
+	public String getSuccess(@AuthenticationPrincipal(expression = "user") User curUser, 
+			Model model,@PathVariable String id){
+		return "success";
+	}
+	
 
 }
