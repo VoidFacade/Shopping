@@ -19,24 +19,10 @@
 
 <body>
 
-	<div>${goods.id}</div>
-
-
+	<div>${goods.id}/${user.id}</div>
 
  <div class="hrader" id="header">
-  <div class="top">
-   <a href="login.html" style="color:#C94E13;">请登录</a> 
-   <a href="reg.html">注册</a>
-   <ul class="topNav">
-     <li><a href="order.html">我的订单 </a></li>
-    <li class="gouwuche"><a href="car.html">购物车</a> <strong style="color:#C94E13;">3</strong></li>
-    <li class="shoucangjia"><a href="shoucang.html">收藏夹</a></li>
-    <li class="kefus"><a href="#">联系客服</a></li>
-    <li><a href="#" class="lan">中文</a></li>
-    <li><a href="#" class="lan">English</a></li>
-    <div class="clears"></div>
-   </ul><!--topNav/-->
-  </div><!--top/-->
+  <%@ include file="header.jspf" %>
  </div><!--hrader/-->
  <div class="mid">
   <h1 class="logo" style="text-align:left;">

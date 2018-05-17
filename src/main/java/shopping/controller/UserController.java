@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -32,8 +33,13 @@ public class UserController {
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/login")
 	public String login(@RequestParam(required = false) String error) {
+		
+		if (error != null) {
+			System.out.println("登录失败");
+		}
 			return "login";
 	}
+	
 	@RequestMapping(method = RequestMethod.GET, value = "/index")
 	public String index() {
 		return "index";
@@ -64,9 +70,10 @@ public class UserController {
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/prolist")
-	public String getProlist(Model model){
+	public String getProlist(@AuthenticationPrincipal(expression = "user") User curUser,Model model){
 		List<Goods> goodes = userSerive.findAllCommoditys();
 		model.addAttribute("goodes",goodes);
+		model.addAttribute("user",curUser);
 		return "prolist";
 		
 	}
@@ -141,15 +148,14 @@ public class UserController {
 		OrderDetalis orderDetalis = userSerive.getOrderDetalis(orderId);
 		model.addAttribute("orderDetalis", orderDetalis);
 		model.addAttribute("curUser", curUser);
-		System.out.println(curUser.getId());
-		System.out.println(orderDetalis.getOrderId());
 		return "vipXiaofei";
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/buyinfo/{id}")
 	public String getBuyinfo(@AuthenticationPrincipal(expression = "user") User curUser, 
-			Model model,@PathVariable String id){
+			Model model,@PathVariable String id,RedirectAttributes redirectAttributes){
 		Goods goods = userSerive.getGoodsDetalis(id);
+		model.addAttribute("user", curUser);
 		model.addAttribute("goods", goods);
 		return "buyinfo";
 	}
